@@ -1,0 +1,117 @@
+<!--
+
+To run this demo, you need to replace 'YOUR_ACCESS_TOKEN' with an access token from ArcGIS that has the correct privileges.
+
+To get started, sign up for a free ArcGIS Location Platform account or a free trial of ArcGIS Online and create developer credentials.
+
+https://developers.arcgis.com/documentation/security-and-authentication/get-started/
+
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS Maps SDK for JavaScript Tutorials: Change the basemap style</title>
+    <style>
+      html,
+      body,
+      arcgis-map {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      #basemapStyles {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        width: 250px;
+      }
+
+    </style>
+
+    <script>
+      var esriConfig = {
+        apiKey: "AAPTxy8BH1VEsoebNVZXo8HurOLb7f_X135utl8D--mzqWfjGqaF2QB_jlJ74v8MURM2YmcJU23vM-zf_s3C3Z7nSW0UM8aXLKwpRPpN8rq2wT9IBgCoL2HGXVRWVowS8dc1pQwn0lvi4vUUirlElOZ4WlGjM-Wml9r65EdMXq1uFVj8UCA7MGssvaKcgkPgExcrdaesuFT3PkD7FtCqM5rE9WoVdtNEuuz4_X8P9tHHzZ83P8pfARw4IIesc8dRwQ3GAT1_wuaFtOoG"
+      };
+    </script>
+
+    <!-- Load Calcite components from CDN -->
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.13.2/calcite.css" />
+    <script type="module" src="https://js.arcgis.com/calcite-components/2.13.2/calcite.esm.js"></script>
+
+    <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.31/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.31/"></script>
+
+    <!-- Load Map components from CDN-->
+    <script
+      type="module"
+      src="https://js.arcgis.com/map-components/4.31/arcgis-map-components.esm.js"
+    ></script>
+
+  </head>
+  <body>
+
+    <arcgis-map basemap="arcgis/topographic" center="-118.805, 34.027" zoom="13">
+      <arcgis-zoom position="top-left"></arcgis-zoom>
+
+      <arcgis-placement position="top-right">
+
+        <div id="basemapStyles">
+          <calcite-label>
+            Basemap Style:
+            <calcite-combobox id="styleCombobox" selection-mode="single" clear-disabled>
+              <calcite-combobox-item value="arcgis/navigation" text-label="arcgis/navigation"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/navigation-night" text-label="arcgis/navigation-night"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/streets" text-label="arcgis/streets"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/streets-relief" text-label="arcgis/streets-relief"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/streets-night" text-label="arcgis/streets-night"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/outdoor" text-label="arcgis/outdoor"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/imagery" text-label="arcgis/imagery"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/topographic" text-label="arcgis/topographic" selected></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/terrain" text-label="arcgis/terrain"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/oceans" text-label="arcgis/oceans"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/light-gray" text-label="arcgis/light-gray"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/dark-gray" text-label="arcgis/dark-gray"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/human-geography" text-label="arcgis/human-geography"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/human-geography-dark" text-label="arcgis/human-geography-dark"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/charted-territory" text-label="arcgis/charted-territory"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/colored-pencil" text-label="arcgis/colored-pencil"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/nova" text-label="arcgis/nova"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/modern-antique" text-label="arcgis/modern-antique"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/midcentury" text-label="arcgis/midcentury"></calcite-combobox-item>
+              <calcite-combobox-item value="arcgis/newspaper" text-label="arcgis/newspaper"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/standard" text-label="osm/standard"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/standard-relief" text-label="osm/standard-relief"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/navigation" text-label="osm/navigation"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/navigation-dark" text-label="osm/navigation-dark"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/streets" text-label="osm/streets"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/hybrid" text-label="osm/hybrid"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/light-gray" text-label="osm/light-gray"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/dark-gray" text-label="osm/dark-gray"></calcite-combobox-item>
+              <calcite-combobox-item value="osm/blueprint" text-label="osm/blueprint"></calcite-combobox-item>
+            </calcite-combobox>
+          </calcite-label>
+        </div>
+
+      </arcgis-placement>
+
+    </arcgis-map>
+
+    <script>
+
+      const updateBasemapStyle = (basemapId) => {
+        document.querySelector("arcgis-map").basemap = basemapId;
+      };
+
+      document.querySelector("#styleCombobox").addEventListener("calciteComboboxChange", (event) => {
+        updateBasemapStyle(event.target.value);
+      });
+
+    </script>
+
+  </body>
+</html>
